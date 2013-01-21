@@ -3,12 +3,12 @@ ENV["RAILS_ENV"] = "test"
 require 'simplecov'
 require "paperclip/matchers"
 
-#SimpleCov.start do
-#  add_filter "spec"
-#  add_group "Models",      "app/models"
-#  add_group "Controllers", "app/controllers"
-#  add_group "Helpers",      "app/helpers"
-#end
+SimpleCov.start do
+  add_filter "spec"
+  add_group "Models",      "app/models"
+  add_group "Controllers", "app/controllers"
+  add_group "Helpers",      "app/helpers"
+end
 
 
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)

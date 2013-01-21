@@ -22,4 +22,12 @@ module ZPages
   end
 
   autoload :Configuration, 'zpages/configuration'
+  autoload :Page,          'zpages/page'
+
+
+  module Attribute
+    autoload :Base,      'zpages/attribute/base'
+    autoload :String,    'zpages/attribute/string'
+    autoload :Html,      'zpages/attribute/html'
+  end
 end

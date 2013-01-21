@@ -27,5 +27,31 @@ module ZPages
       end
     end
 
+    describe "#load" do
+      before do
+        subject.config_files = ["#{Rails.root}/../zpages_test.yml"]
+        subject.load
+      end
+
+      it "should load config from yaml file" do
+        pages = subject.pages
+        pages.should eq({
+          body_and_title: {
+            attributes: {
+              title: {type: 'string'},
+              body: { type: 'text' }
+            },
+          },
+          text_and_html: {
+            attributes: {
+              text: { type: 'text' },
+              html: { type: 'html' }
+            }
+          }
+        })
+        subject.pages[:body_and_title].should == pages[:body_and_title]
+      end
+    end
+
   end
 end

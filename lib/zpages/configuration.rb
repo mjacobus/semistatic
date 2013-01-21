@@ -1,9 +1,12 @@
+require 'yaml'
+
 module ZPages
   class Configuration
 
     def initialize
       @templates_path = Rails.root. + 'app/views/layout'
       @config_files = [(Rails.root. + 'config/zpages.yml')]
+      @config = {pages: {}}
     end
 
     # set the template path
@@ -28,6 +31,25 @@ module ZPages
     # @return Array # the filepaths in a array
     def config_files
       @config_files
+    end
+
+    # load config from files
+    def load
+      config_files.each do |file|
+        config = YAML::load(File.open(file)).deep_symbolize_keys
+        @config[:pages].merge!(config[:pages])
+      end
+    end
+
+    # @return Hash
+    def pages
+      @config[:pages]
+    end
+
+    # @param Symbol key
+    # @return hash
+    def page(key)
+      pages[key]
     end
   end
 end
