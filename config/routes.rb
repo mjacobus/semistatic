@@ -1,2 +1,2 @@
-ZPages::Engine.routes.draw do
+Zpages::Engine.routes.draw do
 end

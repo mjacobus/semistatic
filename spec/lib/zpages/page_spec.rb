@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-module ZPages
+module Zpages
   describe Page do
     describe "#initialize" do
       let(:page) do
@@ -17,12 +17,12 @@ module ZPages
 
       context "when attribute is String" do
         subject { page.attributes[:title] }
-        it { should be_kind_of(ZPages::Attribute::String) }
+        it { should be_kind_of(Zpages::Attribute::String) }
       end
 
       context "when attribute is String" do
         subject { page.attributes[:body] }
-        it { should be_kind_of(ZPages::Attribute::Html) }
+        it { should be_kind_of(Zpages::Attribute::Html) }
       end
     end
 

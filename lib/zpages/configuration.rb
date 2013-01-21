@@ -1,6 +1,6 @@
 require 'yaml'
 
-module ZPages
+module Zpages
   class Configuration
 
     def initialize

@@ -1,4 +1,4 @@
-module ZPages
+module Zpages
   class Page
     attr_reader :attributes
 
@@ -17,7 +17,7 @@ module ZPages
 
     private
       def factory_attribute(options)
-        "ZPages::Attribute::#{options[:type].to_s.capitalize}".constantize.new
+        "Zpages::Attribute::#{options[:type].to_s.capitalize}".constantize.new
       end
   end
 end

@@ -1,14 +1,14 @@
 require 'spec_helper'
 
-module ZPages
+module Zpages
   describe Configuration do
 
     it "should be configured as as block" do
-      ZPages.configure do |config|
+      Zpages.configure do |config|
         config.templates_path = '/'
       end
 
-      ZPages.configuration.templates_path.should == '/'
+      Zpages.configuration.templates_path.should == '/'
     end
 
     describe "#templates_path" do

@@ -1,4 +1,4 @@
-module ZPages
+module Zpages
   module Attribute
     class Html < Base
 

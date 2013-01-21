@@ -1,16 +1,16 @@
 require "zpages/engine"
 
-module ZPages
+module Zpages
 
   # configure plugin
   #   Usage example:
-  #     ZPages.configure do |config|
+  #     Zpages.configure do |config|
   #       config.template_path = '/path/to/templates'
   #       config.config_files = ['/file1.yml','file2.yml']
   #     end
   #
-  # @param ZPages::Configuration configuration
-  def self.configure(configuration = ZPages::Configuration.new)
+  # @param Zpages::Configuration configuration
+  def self.configure(configuration = Zpages::Configuration.new)
     yield configuration if block_given?
     @@configuration = configuration
   end

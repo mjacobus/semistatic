@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
 
-  mount ZPages::Engine => "/zpages"
+  mount Zpages::Engine => "/zpages"
 end
