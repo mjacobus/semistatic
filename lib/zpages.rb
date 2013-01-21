@@ -21,9 +21,11 @@ module Zpages
     @@configuration ||= Plugin::Configuration.new
   end
 
-  autoload :Configuration, 'zpages/configuration'
-  autoload :Page,          'zpages/page'
+  autoload :Configuration,      'zpages/configuration'
 
+  module Config
+    autoload :Page,             'zpages/config/page'
+  end
 
   module Attribute
     autoload :Base,      'zpages/attribute/base'
