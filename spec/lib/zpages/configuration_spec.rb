@@ -49,7 +49,7 @@ module ZPages
             }
           }
         })
-        subject.pages[:body_and_title].should == pages[:body_and_title]
+        subject.page(:body_and_title).should == pages[:body_and_title]
       end
     end
 
