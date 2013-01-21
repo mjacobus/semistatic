@@ -26,9 +26,9 @@ Dir[File.join(ENGINE_RAILS_ROOT, "spec/support/**/*.rb")].each {|f| require f }
 
 RSpec.configure do |config|
   # for getting the routes to work on the controllers and routing tests
-  config.before(:each, type: :controller) { @routes = Zpages::Engine.routes }
-  config.before(:each, type: :routing)    { @routes = Zpages::Engine.routes }
-  config.before(:each, type: :requests)   { @routes = Zpages::Engine.routes }
+  config.before(:each, type: :controller) { @routes = ZPages::Engine.routes }
+  config.before(:each, type: :routing)    { @routes = ZPages::Engine.routes }
+  config.before(:each, type: :requests)   { @routes = ZPages::Engine.routes }
 
   config.use_transactional_fixtures = false
   config.before(:suite) do

@@ -1,6 +1,6 @@
-module Zpages
+module ZPages
   class Engine < ::Rails::Engine
-    isolate_namespace Zpages
+    isolate_namespace ZPages
 
     config.generators do |g|
       g.test_framework :rspec

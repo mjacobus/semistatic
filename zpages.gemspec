@@ -6,7 +6,7 @@ require "zpages/version"
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "zpages"
-  s.version     = Zpages::VERSION
+  s.version     = ZPages::VERSION
   s.authors     = ["Marcelo Jacobus"]
   s.email       = ["marcelo@zira.com.br"]
   s.homepage    = "TODO"
