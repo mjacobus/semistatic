@@ -6,6 +6,7 @@ module ZPages
   #   Usage example:
   #     ZPages.configure do |config|
   #       config.template_path = '/path/to/templates'
+  #       config.config_files = ['/file1.yml','file2.yml']
   #     end
   #
   # @param ZPages::Configuration configuration

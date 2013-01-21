@@ -1,0 +1,13 @@
+pages:
+  body_and_title:
+    attributes:
+      title:
+        type: string
+      body:
+        type: text
+  text_and_html:
+    attributes:
+      text:
+        type: text
+      html:
+        type: html
