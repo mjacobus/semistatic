@@ -4,6 +4,6 @@ module Zpages
     attr_accessible :name, :value, :file
 
     validates :page, presence: true
-    validates :name, presence: true
+    validates :name, presence: true, uniqueness: { case_sensitive: false, scope: :page_id }
   end
 end
