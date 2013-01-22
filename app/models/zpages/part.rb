@@ -1,9 +1,9 @@
 module Zpages
   class Part < ActiveRecord::Base
     belongs_to :page
-    attr_accessible :title, :value, :file
+    attr_accessible :name, :value, :file
 
     validates :page, presence: true
-    validates :title, presence: true
+    validates :name, presence: true
   end
 end

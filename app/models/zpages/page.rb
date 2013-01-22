@@ -17,7 +17,7 @@ module Zpages
       page.template_name = config.name
 
       config.attributes.each do |name, attr|
-        page.parts.build({title: attr.name})
+        page.parts.build({name: attr.name})
       end
 
       page.save(validate: false)

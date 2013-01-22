@@ -1,7 +1,7 @@
 class CreateZpagesAttributes < ActiveRecord::Migration
   def change
     create_table :zpages_attributes do |t|
-      t.string :title
+      t.string :name
       t.references :page
       t.text :value
 

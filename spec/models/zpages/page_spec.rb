@@ -29,11 +29,11 @@ module Zpages
       its('parts.count') { should eq(2) }
 
       it "should have a attribute named title" do
-        subject.parts.map(&:title).should include('title')
+        subject.parts.map(&:name).should include('title')
       end
 
       it "should have a attribute named body" do
-        subject.parts.map(&:title).should include('body')
+        subject.parts.map(&:name).should include('body')
       end
 
     end

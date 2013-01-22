@@ -2,7 +2,7 @@
 class CreateZpagesParts < ActiveRecord::Migration
   def change
     create_table :zpages_parts do |t|
-      t.string :title
+      t.string :name
       t.references :page
       t.text :value
 

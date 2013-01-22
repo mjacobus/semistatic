@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20130122165446) do
   end
 
   create_table "zpages_parts", :force => true do |t|
-    t.string   "title"
+    t.string   "name"
     t.integer  "page_id"
     t.text     "value"
     t.string   "file_file_name"
