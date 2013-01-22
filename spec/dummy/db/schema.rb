@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130122144600) do
+ActiveRecord::Schema.define(:version => 20130122165446) do
+
+  create_table "zpages_attributes", :force => true do |t|
+    t.string   "title"
+    t.integer  "page_id"
+    t.text     "value"
+    t.string   "file_file_name"
+    t.integer  "file_file_size"
+    t.string   "file_content_type"
+    t.datetime "file_updated_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "zpages_attributes", ["page_id"], :name => "index_zpages_attributes_on_page_id"
 
   create_table "zpages_pages", :force => true do |t|
     t.string   "title"
