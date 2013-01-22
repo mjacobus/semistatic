@@ -54,7 +54,8 @@ module Zpages
     describe "GET new" do
       it "assigns a new page as @page" do
         get :new, {}, valid_session
-        assigns(:page).should be_a_new(Page)
+        assigns(:page).should be_a(Page)
+        assigns(:page).should be_persisted
       end
     end
 

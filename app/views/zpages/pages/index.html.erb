@@ -2,7 +2,7 @@
 
 <ul>
 <% @config.pages.each do |name, config| %>
-  <li><%= link_to(name.to_s.titleize, new_page_path(page_type: name)) %></li>
+  <li><%= link_to(name.to_s.titleize, new_page_path(template_name: name)) %></li>
 <% end %>
 </ul>
 

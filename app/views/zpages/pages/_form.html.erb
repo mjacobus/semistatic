@@ -21,7 +21,7 @@
   </div>
 
   <div class="field">
-    <%= pages_fields(@config.page(params[:page_type]), @page) %>
+    <%= pages_fields(@config.page(@page.template_name), @page) %>
   </div>
   <div class="actions">
     <%= f.submit %>

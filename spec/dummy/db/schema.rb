@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130121193204) do
+ActiveRecord::Schema.define(:version => 20130122144600) do
 
   create_table "zpages_pages", :force => true do |t|
     t.string   "title"
     t.string   "slug"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "template_name"
   end
 
 end

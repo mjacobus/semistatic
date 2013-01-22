@@ -16,26 +16,27 @@ module Zpages
     # GET /pages/1
     # GET /pages/1.json
     def show
-      @page = Page.find(params[:id])
+      @page = find_or_create_page
       respond_with(@page)
     end
 
     # GET /pages/new
     # GET /pages/new.json
     def new
-      @page = Page.new
+      @page = find_or_create_page
       respond_with(@page)
     end
 
     # GET /pages/1/edit
     def edit
-      @page = Page.find(params[:id])
+      @page = find_or_create_page
     end
 
     # POST /pages
     # POST /pages.json
     def create
-      @page = Page.new(params[:page])
+      @page = find_or_create_page
+      @page.update_attributes(params[:page])
       @page.save
       respond_with(@page)
     end
@@ -43,7 +44,7 @@ module Zpages
     # PUT /pages/1
     # PUT /pages/1.json
     def update
-      @page = Page.find(params[:id])
+      @page = find_or_create_page
       @page.update_attributes(params[:page])
       respond_with(@page)
     end
@@ -60,6 +61,14 @@ module Zpages
       def set_pages_config
         @config = Zpages.configuration
         @config.load
+      end
+
+      def find_or_create_page
+        if params[:id]
+          Page.find(params[:id])
+        else
+          Page.create(template_name: params[:template_name])
+        end
       end
   end
 end
