@@ -1,5 +1,11 @@
 <h1>Listing pages</h1>
 
+<ul>
+<% @config.pages.each do |name, config| %>
+  <li><%= link_to(name.to_s.titleize, new_page_path(page_type: name)) %></li>
+<% end %>
+</ul>
+
 <table>
   <tr>
     <th>Title</th>

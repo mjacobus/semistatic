@@ -34,4 +34,7 @@ Dummy::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # http://stackoverflow.com/questions/5156061/reopening-rails-3-engine-classes-from-parent-app
+  config.reload_plugins = true
 end

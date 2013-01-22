@@ -16,9 +16,9 @@ module Zpages
   end
 
   # get the configuration object
-  # @return Plugin::Configuration.new
+  # @return Zpages::Configuration.new
   def self.configuration
-    @@configuration ||= Plugin::Configuration.new
+    @@configuration ||= Zpages::Configuration.new
   end
 
   autoload :Configuration,      'zpages/configuration'

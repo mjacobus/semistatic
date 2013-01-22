@@ -2,11 +2,12 @@ require 'yaml'
 
 module Zpages
   class Configuration
+    class Error < StandardError; end
 
     def initialize
       @templates_path = Rails.root. + 'app/views/layout'
       @config_files = [(Rails.root. + 'config/zpages.yml')]
-      @config = {pages: {}}
+      @config = HashWithIndifferentAccess.new({pages: {}})
     end
 
     # set the template path
@@ -36,8 +37,10 @@ module Zpages
     # load config from files
     def load
       config_files.each do |file|
-        config = YAML::load(File.open(file)).deep_symbolize_keys
-        @config[:pages].merge!(config[:pages])
+        config = YAML::load(File.open(file))
+        config['pages'].each do |name, config|
+          @config[:pages][name] = self.class.factory_page(name, config)
+        end
       end
     end
 
@@ -49,7 +52,19 @@ module Zpages
     # @param Symbol key
     # @return hash
     def page(key)
-      pages[key]
+      page = pages[key]
+      raise Error.new("There is no page named '#{key}'") unless page
+      page
+    end
+
+    # @param String name # => the page name
+    # @param Hash config # => the configuration
+    #                    { attributes: {
+    #                      title: { type: :string },
+    #                      body: { type: :html }
+    #                     }}
+    def self.factory_page(name, config)
+      Zpages::Config::Page.new(name, config)
     end
   end
 end

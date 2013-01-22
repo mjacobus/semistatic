@@ -4,6 +4,8 @@ module Zpages
   class PagesController < ApplicationController
     respond_to :html
 
+    before_filter :set_pages_config
+
     # GET /pages
     # GET /pages.json
     def index
@@ -53,5 +55,11 @@ module Zpages
       @page.destroy
       respond_with(@page)
     end
+
+    private
+      def set_pages_config
+        @config = Zpages.configuration
+        @config.load
+      end
   end
 end
