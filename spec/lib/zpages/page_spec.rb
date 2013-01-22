@@ -12,12 +12,12 @@ module Zpages
 
       context "when attribute is String" do
         subject { page.attributes[:title] }
-        it { should be_kind_of(Zpages::Attribute::String) }
+        it { should be_kind_of(Zpages::Config::Attribute::String) }
       end
 
       context "when attribute is String" do
         subject { page.attributes[:body] }
-        it { should be_kind_of(Zpages::Attribute::Html) }
+        it { should be_kind_of(Zpages::Config::Attribute::Html) }
       end
 
       describe "#attributes" do

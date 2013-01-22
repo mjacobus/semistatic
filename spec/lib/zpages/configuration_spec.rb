@@ -62,7 +62,7 @@ module Zpages
       context "page attributes" do
         it "should factory attributes" do
           page = subject.page(:body_and_title)
-          page.attributes.first[1].should be_a Zpages::Attribute::String
+          page.attributes.first[1].should be_a Zpages::Config::Attribute::String
         end
       end
     end

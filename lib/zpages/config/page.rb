@@ -23,7 +23,7 @@ module Zpages
 
 
       def self.factory_attribute(name, options)
-        "Zpages::Attribute::#{options[:type].to_s.capitalize}".constantize.new(name, options)
+        "Zpages::Config::Attribute::#{options[:type].to_s.capitalize}".constantize.new(name, options)
       end
     end
   end

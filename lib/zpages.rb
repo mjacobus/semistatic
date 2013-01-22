@@ -25,11 +25,13 @@ module Zpages
 
   module Config
     autoload :Page,             'zpages/config/page'
+
+    module Attribute
+      autoload :Base,      'zpages/config/attribute/base'
+      autoload :String,    'zpages/config/attribute/string'
+      autoload :Html,      'zpages/config/attribute/html'
+    end
   end
 
-  module Attribute
-    autoload :Base,      'zpages/attribute/base'
-    autoload :String,    'zpages/attribute/string'
-    autoload :Html,      'zpages/attribute/html'
-  end
+
 end
