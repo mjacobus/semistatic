@@ -10,8 +10,8 @@ module Zpages
     it { should validate_uniqueness_of(:slug).case_insensitive }
     it { should validate_presence_of(:title) }
 
-    it { should have_many(:attributes) }
-    it { should accept_nested_attributes_for(:attributes) }
+    it { should have_many(:parts) }
+    it { should accept_nested_attributes_for(:parts) }
 
     describe '.factory' do
       let(:page_config) do
@@ -26,14 +26,14 @@ module Zpages
       subject { described_class.factory(page_config) }
 
       its(:template_name) { should eq('page_name') }
-      its('attributes.count') { should eq(2) }
+      its('parts.count') { should eq(2) }
 
       it "should have a attribute named title" do
-        subject.attributes.map(&:title).should include('title')
+        subject.parts.map(&:name).should include('title')
       end
 
       it "should have a attribute named body" do
-        subject.attributes.map(&:title).should include('body')
+        subject.parts.map(&:name).should include('body')
       end
 
     end

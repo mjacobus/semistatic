@@ -25,10 +25,10 @@
   </div>
 
   <fieldset>
-    <legend>Attributes</legend>
-    <%= f.fields_for :attributes do |ff| %>
+    <legend>Page Parts</legend>
+    <%= f.fields_for :parts do |ff| %>
       <div class="field">
-        <%= ff.label(ff.object.title) %><br />
+        <%= ff.label(ff.object.name) %><br />
         <%= page_attribute_form_element(ff, @page, @config) %>
       </div>
     <% end %>

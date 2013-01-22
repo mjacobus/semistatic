@@ -11,5 +11,14 @@
 </p>
 
 
+<% @page.parts.each do |part| %>
+
+<div class="zpages-part">
+  <b><%= part.name %></b>
+  <div class="content"><%= part.value %></div>
+</div>
+
+<% end %>
+
 <%= link_to 'Edit', edit_page_path(@page) %> |
 <%= link_to 'Back', pages_path %>

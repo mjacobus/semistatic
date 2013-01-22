@@ -1,8 +1,8 @@
 # This migration comes from zpages (originally 20130122165327)
-class CreateZpagesAttributes < ActiveRecord::Migration
+class CreateZpagesParts < ActiveRecord::Migration
   def change
-    create_table :zpages_attributes do |t|
-      t.string :title
+    create_table :zpages_parts do |t|
+      t.string :name
       t.references :page
       t.text :value
 
@@ -14,6 +14,6 @@ class CreateZpagesAttributes < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :zpages_attributes, :page_id
+    add_index :zpages_parts, :page_id
   end
 end
