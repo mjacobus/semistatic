@@ -1,9 +1,9 @@
 module Zpages
   class Page < ActiveRecord::Base
-    attr_accessible :slug, :title, :template_name, :attributes_attributes
+    attr_accessible :slug, :title, :template_name, :parts_attributes
 
-    has_many :attributes
-    accepts_nested_attributes_for :attributes
+    has_many :parts
+    accepts_nested_attributes_for :parts
 
     validates :slug, presence: true, uniqueness: { case_sensitive: false }
     validates :title, presence: true
@@ -17,7 +17,7 @@ module Zpages
       page.template_name = config.name
 
       config.attributes.each do |name, attr|
-        page.attributes.build({title: attr.name})
+        page.parts.build({title: attr.name})
       end
 
       page.save(validate: false)

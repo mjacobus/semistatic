@@ -13,7 +13,15 @@
 
 ActiveRecord::Schema.define(:version => 20130122165446) do
 
-  create_table "zpages_attributes", :force => true do |t|
+  create_table "zpages_pages", :force => true do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "template_name"
+  end
+
+  create_table "zpages_parts", :force => true do |t|
     t.string   "title"
     t.integer  "page_id"
     t.text     "value"
@@ -25,14 +33,6 @@ ActiveRecord::Schema.define(:version => 20130122165446) do
     t.datetime "updated_at",        :null => false
   end
 
-  add_index "zpages_attributes", ["page_id"], :name => "index_zpages_attributes_on_page_id"
-
-  create_table "zpages_pages", :force => true do |t|
-    t.string   "title"
-    t.string   "slug"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.string   "template_name"
-  end
+  add_index "zpages_parts", ["page_id"], :name => "index_zpages_parts_on_page_id"
 
 end

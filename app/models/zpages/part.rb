@@ -1,5 +1,5 @@
 module Zpages
-  class Attribute < ActiveRecord::Base
+  class Part < ActiveRecord::Base
     belongs_to :page
     attr_accessible :title, :value, :file
 
