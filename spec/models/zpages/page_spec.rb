@@ -12,5 +12,30 @@ module Zpages
 
     it { should have_many(:attributes) }
     it { should accept_nested_attributes_for(:attributes) }
+
+    describe '.factory' do
+      let(:page_config) do
+        Config::Page.new(:page_name, {
+          attributes: {
+            title: { type: :string},
+            body:  { type: :html},
+          }
+        })
+      end
+
+      subject { described_class.factory(page_config) }
+
+      its(:template_name) { should eq('page_name') }
+      its('attributes.count') { should eq(2) }
+
+      it "should have a attribute named title" do
+        subject.attributes.map(&:title).should include('title')
+      end
+
+      it "should have a attribute named body" do
+        subject.attributes.map(&:title).should include('body')
+      end
+
+    end
   end
 end

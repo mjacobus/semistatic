@@ -23,8 +23,7 @@ module Zpages
     # GET /pages/new
     # GET /pages/new.json
     def new
-      @page = find_or_create_page
-      respond_with(@page)
+      redirect_to edit_page_path(find_or_create_page)
     end
 
     # GET /pages/1/edit
@@ -67,7 +66,7 @@ module Zpages
         if params[:id]
           Page.find(params[:id])
         else
-          Page.create(template_name: params[:template_name])
+          Page.factory(@config.page(params[:template_name]))
         end
       end
   end

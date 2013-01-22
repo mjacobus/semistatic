@@ -21,8 +21,19 @@
   </div>
 
   <div class="field">
-    <%= pages_fields(@config.page(@page.template_name), @page) %>
+    <% # = pages_fields(f, @config.page(@page.template_name), @page) %>
   </div>
+
+  <fieldset>
+    <legend>Attributes</legend>
+    <%= f.fields_for :attributes do |ff| %>
+      <div class="field">
+        <%= ff.label(ff.object.title) %><br />
+        <%= page_attribute_form_element(ff, @page, @config) %>
+      </div>
+    <% end %>
+  </fieldset>
+
   <div class="actions">
     <%= f.submit %>
   </div>
