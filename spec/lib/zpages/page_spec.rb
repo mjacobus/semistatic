@@ -3,32 +3,25 @@ require 'spec_helper'
 module Zpages
   module Config
     describe Page do
-      describe "#initialize" do
-        let(:page) do
-          Page.new({
-            title: { type: :string },
-            body: { type: :html },
-          })
-        end
+      let(:attributes) { { attributes: { title: { type: :string }, body: { type: :html } } } }
+      let(:page) { Page.new(:page_name, attributes) }
+      subject { page }
 
-        subject { page }
+      its(:attributes) { should have_key(:title) }
+      its(:attributes) { should have_key(:body) }
 
-        its(:attributes) { should have_key(:title) }
-        its(:attributes) { should have_key(:body) }
+      context "when attribute is String" do
+        subject { page.attributes[:title] }
+        it { should be_kind_of(Zpages::Config::Attribute::String) }
+      end
 
-        context "when attribute is String" do
-          subject { page.attributes[:title] }
-          it { should be_kind_of(Zpages::Attribute::String) }
-        end
-
-        context "when attribute is String" do
-          subject { page.attributes[:body] }
-          it { should be_kind_of(Zpages::Attribute::Html) }
-        end
+      context "when attribute is String" do
+        subject { page.attributes[:body] }
+        it { should be_kind_of(Zpages::Config::Attribute::Html) }
       end
 
       describe "#attributes" do
-        its(:attributes) { should == {} }
+        its(:attributes) { should be_a HashWithIndifferentAccess }
       end
     end
   end

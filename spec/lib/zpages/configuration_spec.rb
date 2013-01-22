@@ -34,22 +34,59 @@ module Zpages
       end
 
       it "should load config from yaml file" do
-        pages = subject.pages
-        pages.should eq({
-          body_and_title: {
-            attributes: {
-              title: {type: 'string'},
-              body: { type: 'text' }
-            },
-          },
-          text_and_html: {
-            attributes: {
-              text: { type: 'text' },
-              html: { type: 'html' }
-            }
-          }
-        })
-        subject.page(:body_and_title).should == pages[:body_and_title]
+        subject.pages.each do |name, page|
+          page.should  be_a Zpages::Config::Page
+          page.name.should == name
+        end
+      end
+    end
+
+    describe "#page" do
+      before do
+        subject.config_files = ["#{Rails.root}/../zpages_test.yml"]
+        subject.load
+      end
+
+      it "should get page with Symbol key" do
+        subject.page(:body_and_title).should  be_a Zpages::Config::Page
+      end
+
+      it "should get page with String key" do
+        subject.page('body_and_title').should be_a Zpages::Config::Page
+      end
+
+      it "should raise error when page does not exist" do
+        expect { subject.page(:no_exists) }.to raise_error(Zpages::Configuration::Error)
+      end
+
+      context "page attributes" do
+        it "should factory attributes" do
+          page = subject.page(:body_and_title)
+          page.attributes.first[1].should be_a Zpages::Config::Attribute::String
+        end
+      end
+    end
+
+    describe "#pages" do
+      before do
+        subject.config_files = ["#{Rails.root}/../zpages_test.yml"]
+        subject.load
+      end
+
+      it "should factory pages from file" do
+        subject.pages.each do |name, page|
+           page.should be_a Zpages::Config::Page
+           page.name.should == name
+        end
+      end
+    end
+
+    describe ".factory_page" do
+      subject { described_class }
+      it "should factory page" do
+        page = subject.factory_page(:page_name, { attributes: { body: {type: :string } } } )
+        page.should be_a Zpages::Config::Page
+        page.name.to_s.should == 'page_name'
       end
     end
 

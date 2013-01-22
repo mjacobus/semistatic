@@ -1,0 +1,16 @@
+pages:
+  title_and_body:
+    attributes:
+      title:
+        type: String
+      body:
+        type: Html
+
+  three_text_columns:
+    attributes:
+      column_one:
+        type: Html
+      column_two:
+        type: Html
+      column_three:
+        type: Html

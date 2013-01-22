@@ -16,20 +16,22 @@ module Zpages
   end
 
   # get the configuration object
-  # @return Plugin::Configuration.new
+  # @return Zpages::Configuration.new
   def self.configuration
-    @@configuration ||= Plugin::Configuration.new
+    @@configuration ||= Zpages::Configuration.new
   end
 
   autoload :Configuration,      'zpages/configuration'
 
   module Config
     autoload :Page,             'zpages/config/page'
+
+    module Attribute
+      autoload :Base,      'zpages/config/attribute/base'
+      autoload :String,    'zpages/config/attribute/string'
+      autoload :Html,      'zpages/config/attribute/html'
+    end
   end
 
-  module Attribute
-    autoload :Base,      'zpages/attribute/base'
-    autoload :String,    'zpages/attribute/string'
-    autoload :Html,      'zpages/attribute/html'
-  end
+
 end
