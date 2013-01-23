@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-
-  mount Zpages::Engine => "/zpages"
+  match ':slug.html' => 'zpages/page_view#show', as: :page
+  mount Zpages::Engine => "/admin"
 end

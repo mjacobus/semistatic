@@ -1,0 +1,16 @@
+<%= link_to('Title And Body', main_app.page_path('title-and-body')) %>
+
+
+<h1><%= @page.title %></h1>
+
+<style>
+  td {border: 1px solid black;}
+</style>
+
+<table>
+  <tr>
+    <td><%= page_part(:column_one) %></td>
+    <td><%= page_part(:column_two) %></td>
+    <td><%= page_part(:column_three) %></td>
+  </tr>
+</table>
