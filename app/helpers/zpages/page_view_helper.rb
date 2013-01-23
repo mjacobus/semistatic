@@ -15,7 +15,7 @@ module Zpages
 
       case attribute.type
 
-      when 'html'
+      when :html
         raw part.value
       else
         part.value

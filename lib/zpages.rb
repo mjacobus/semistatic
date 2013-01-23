@@ -28,8 +28,9 @@ module Zpages
 
     module Attribute
       autoload :Base,      'zpages/config/attribute/base'
-      autoload :String,    'zpages/config/attribute/string'
       autoload :Html,      'zpages/config/attribute/html'
+      autoload :Image,     'zpages/config/attribute/image'
+      autoload :String,    'zpages/config/attribute/string'
     end
   end
 

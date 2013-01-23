@@ -4,9 +4,9 @@ module Zpages
       page = config.page(page.template_name)
 
       case page.attributes[subform.object.name].type
-        when 'string'
+        when :string
           subform.text_field :value
-        when 'html'
+        when :html
           subform.text_area :value
       end
     end

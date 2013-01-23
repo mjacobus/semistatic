@@ -3,11 +3,16 @@ pages:
     attributes:
       title:
         type: string
+        label: Title of Page
+        description: This is the title
       body:
         type: string
-  text_and_html:
+        label: Body
+  text_and_content:
     attributes:
       text:
         type: string
-      html:
+      content:
         type: html
+        label: The content
+        description: This is the content
