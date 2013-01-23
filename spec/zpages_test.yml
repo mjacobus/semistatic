@@ -16,3 +16,11 @@ pages:
         type: html
         label: The content
         description: This is the content
+  test_template:
+    attributes:
+      text:
+        type: string
+      content:
+        type: html
+        label: The content
+        description: This is the content

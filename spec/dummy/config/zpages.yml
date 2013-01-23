@@ -5,7 +5,6 @@ pages:
         type: String
       body:
         type: Html
-
   three_text_columns:
     attributes:
       column_one:
@@ -14,3 +13,11 @@ pages:
         type: Html
       column_three:
         type: Html
+  test_template:
+    attributes:
+      text:
+        type: string
+      content:
+        type: html
+        label: The content
+        description: This is the content

@@ -37,10 +37,7 @@ module Zpages
         # POST /pages
         # POST /pages.json
         def create
-          @page = find_or_create_page
-          @page.update_attributes(params[:page])
-          @page.save
-          respond_with(@page)
+          redirect_to pages_path
         end
 
         # PUT /pages/1
