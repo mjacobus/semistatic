@@ -14,8 +14,8 @@
 <% @page.parts.each do |part| %>
 
 <div class="zpages-part">
-  <b><%= part.name %></b>
-  <div class="content"><%= part.value %></div>
+  <h2 class="zpart-name"><%= part.name %></h2>
+  <div class="content"><%= page_part(part.name) %></div>
 </div>
 
 <% end %>

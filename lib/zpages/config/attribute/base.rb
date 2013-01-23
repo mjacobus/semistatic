@@ -11,6 +11,10 @@ module Zpages
           @name = name
           @options = HashWithIndifferentAccess.new(options)
         end
+
+        def type
+          @type ||= self.class.to_s.split('::').last.downcase
+        end
       end
     end
   end
