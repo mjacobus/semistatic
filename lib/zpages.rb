@@ -35,6 +35,7 @@ module Zpages
 
   module Concerns
     module Controllers
+      autoload :PagesController,     'zpages/concerns/controllers/pages_controller'
       autoload :PageViewController,  'zpages/concerns/controllers/page_view_controller'
     end
   end
