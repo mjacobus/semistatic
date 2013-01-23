@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130122165446) do
+ActiveRecord::Schema.define(:version => 20130123191557) do
 
   create_table "zpages_pages", :force => true do |t|
     t.string   "title"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20130122165446) do
     t.datetime "file_updated_at"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.text     "options"
   end
 
   add_index "zpages_parts", ["page_id"], :name => "index_zpages_parts_on_page_id"

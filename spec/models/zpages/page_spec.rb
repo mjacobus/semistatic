@@ -2,6 +2,7 @@ require 'spec_helper'
 
 module Zpages
   describe Page do
+    it { should_not allow_mass_assignment_of(:options) }
     it { should allow_mass_assignment_of(:slug) }
     it { should allow_mass_assignment_of(:template_name) }
     it { should allow_mass_assignment_of(:title) }
@@ -28,14 +29,35 @@ module Zpages
       its(:template_name) { should eq('page_name') }
       its('parts.count') { should eq(2) }
 
-      it "should have a attribute named title" do
+      it "has a part named title" do
         subject.parts.map(&:name).should include('title')
       end
 
-      it "should have a attribute named body" do
+      it "has a part named body" do
         subject.parts.map(&:name).should include('body')
       end
 
+      it "has parts with the attribute options saved on it" do
+        subject.parts.find_by_name(:title).options.should eq(
+          HashWithIndifferentAccess.new({ type: :string})
+        )
+      end
+    end #.factory
+
+    describe "#part" do
+      it "gets part by name" do
+        page = Page.factory(Config::Page.new(:page_name, {
+          attributes: {
+            title: { type: :string},
+            body:  { type: :html},
+          }
+        }))
+
+        page.part('title').should be_a Part
+        page.part('title').name.should == 'title'
+        page.part(:body).should be_a Part
+        page.part(:body).name.should == 'body'
+      end
     end
   end
 end

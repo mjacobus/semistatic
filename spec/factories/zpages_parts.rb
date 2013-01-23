@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :zpages_part, :class => 'Zpages::Part' do
     name { generate(:name) }
-    association :page
+    association :page, factory: :zpages_page
     value "MyText"
   end
 end
