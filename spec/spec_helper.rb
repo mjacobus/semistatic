@@ -1,7 +1,6 @@
 # Configure Rails Envinronment
 ENV["RAILS_ENV"] = "test"
 require 'simplecov'
-require "paperclip/matchers"
 
 SimpleCov.start do
   add_filter "spec"
@@ -17,6 +16,7 @@ require 'rspec/rails'
 require "factory_girl_rails"
 require "database_cleaner"
 require 'shoulda/matchers'
+require "paperclip/matchers"
 
 ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '../')
 
@@ -46,6 +46,6 @@ RSpec.configure do |config|
   config.filter_run :focus => true
   config.run_all_when_everything_filtered = true
 
-  # config.include Paperclip::Shoulda::Matchers
+  config.include Paperclip::Shoulda::Matchers
 end
 

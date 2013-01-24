@@ -1,4 +1,5 @@
 require "zpages/engine"
+require 'paperclip'
 
 module Zpages
 
