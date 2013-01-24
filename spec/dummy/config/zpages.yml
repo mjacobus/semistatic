@@ -21,3 +21,13 @@ pages:
         type: html
         label: The content
         description: This is the content
+
+  profile:
+    attributes:
+      avatar:
+        type: image
+        styles:
+          original: 200x200>
+          thumb: 50x50>
+      about:
+        type: string

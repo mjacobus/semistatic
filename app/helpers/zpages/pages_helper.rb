@@ -1,13 +1,19 @@
 module Zpages
   module PagesHelper
-    def page_attribute_form_element(subform, page, config)
-      page = config.page(page.template_name)
+    def page_attribute_form_element(subform)
+      part = subform.object
 
-      case page.attributes[subform.object.name].type
+      case part.type
         when :string
           subform.text_field :value
         when :html
           subform.text_area :value
+        when :image
+          input = subform.file_field :file
+          if part.file?
+            input = image_tag(part.file.url) + input
+          end
+          content_tag(:div, input)
       end
     end
   end

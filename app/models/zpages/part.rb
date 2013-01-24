@@ -5,13 +5,14 @@ module Zpages
 
     serialize :options, HashWithIndifferentAccess
 
-    has_attached_file :file
+    has_attached_file :file,
+      styles: lambda { |attachment| attachment.instance.options[:styles] }
 
     # attachment validation
     validates_attachment_presence :file, if: :is_file?
     validates_attachment_size :file, :less_than => 5.megabytes
     # TODO: Learn how to validate depending on the options, lambda maybe
-    validates_attachment_content_type :file, content_type: ['image/jpg', 'image/png', 'image/gif']
+    validates_attachment_content_type :file, content_type: ['image/jpeg', 'image/png', 'image/gif']
 
     validates :name, presence: true, uniqueness: { case_sensitive: false, scope: :page_id }
     validates :page, presence: true

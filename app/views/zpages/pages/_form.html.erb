@@ -26,10 +26,10 @@
 
   <fieldset>
     <legend>Page Parts</legend>
-    <%= f.fields_for :parts do |ff| %>
+    <%= f.fields_for :parts do |subform| %>
       <div class="field">
-        <%= ff.label(ff.object.name) %><br />
-        <%= page_attribute_form_element(ff, @page, @config) %>
+        <%= subform.label(subform.object.name) %><br />
+        <%= page_attribute_form_element(subform) %>
       </div>
     <% end %>
   </fieldset>

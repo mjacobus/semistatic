@@ -43,9 +43,11 @@ end
 describe Zpages::Part, "#file" do
   let(:file_hash) { { type: :file } }
   let(:image_hash) do
-    { type: :image, styles: {
-      thumb: '30x40>',
-    }}
+    { type: :image,
+      styles: {
+        thumb: '30x40>',
+      }
+    }
   end
   let(:image) { FactoryGirl.build(:zpages_part, options: image_hash) }
   let(:file) { FactoryGirl.build(:zpages_part, options: file_hash) }
@@ -60,9 +62,10 @@ describe Zpages::Part, "#file" do
   context 'when is file' do
     subject { file }
 
-    it { should validate_attachment_presence(:file) }
-    it { should validate_attachment_size(:file).less_than(5.megabytes) }
     its(:is_file?) { should be_true }
+    it { should validate_attachment_presence(:file) }
+    it 'should validate size of image'
+    # it { should validate_attachment_size(:file).less_than(5.megabytes) }
 
     context 'when not image' do
       its(:is_file?) { should be_true }
@@ -74,9 +77,50 @@ describe Zpages::Part, "#file" do
 
       its(:is_file?) { should be_true }
       its(:is_image?) { should be_true }
+      it "should validate content type allowing 'image/png', 'image/jpeg','image/gif'"
+
       #it { should validate_attachment_content_type(:file)
       #  .allowing('image/png', 'image/jpeg','image/gif').rejecting('application/text') }
-      it "should validate content type allowing 'image/png', 'image/jpeg','image/gif'"
     end
-  end
+
+    context "resizing with paperclip" do
+      before { image.file = File.open(TEST_IMAGE); image.save! }
+      after { image.destroy }
+
+      context "with styles defined" do
+        it "resizes according to the paperclip options" do
+          path = "#{Rails.root}/public/system/zpages/parts/files/000/000/00#{image.id}/original/300x400.jpg"
+          File.exists?(path).should be_true
+
+          path = "#{Rails.root}/public/system/zpages/parts/files/000/000/00#{image.id}/thumb/300x400.jpg"
+          File.exists?(path).should be_true
+        end
+      end
+
+      # Cannot do at the moment
+      # paperclip wont accept lambda as path and url params
+      #
+
+      # context "with path defined" do
+      #   before do
+      #     image.options[:path] = "/tmp/specs/:id/:style.:extension"
+      #   end
+
+      #   it "saves file on the given path" do
+      #     File.exists?("/tmp/specs/#{image.id}/thumb.jpg").should be_true
+      #   end
+      # end
+
+      # context "with url defined" do
+      #   before do
+      #     image.options[:url] = "/tmp/specs/:id/:style.:extension"
+      #   end
+
+      #   it "gets the correct file url" do
+      #     image.file.url.should == "/tmp/specs/#{image.id}/normal.jpg"
+      #   end
+      # end
+
+    end # resizing with paperclip
+  end # #file
 end

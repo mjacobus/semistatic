@@ -20,6 +20,9 @@ require "paperclip/matchers"
 
 ENGINE_RAILS_ROOT=File.join(File.dirname(__FILE__), '../')
 
+SPEC_ROOT = File.join(ENGINE_RAILS_ROOT, "spec")
+TEST_IMAGE = File.join(SPEC_ROOT, "/support/300x400.jpg")
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[File.join(ENGINE_RAILS_ROOT, "spec/support/**/*.rb")].each {|f| require f }
