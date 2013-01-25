@@ -12,12 +12,10 @@
 
 
 <% @page.parts.each do |part| %>
-
-<div class="zpages-part">
-  <h2 class="zpart-name"><%= part.name %></h2>
-  <div class="content"><%= part.value %></div>
-</div>
-
+  <div class="zpages-part">
+    <h2 class="zpart-name"><%= part.name %></h2>
+    <div class="content"><%= @presenter.output(part.name) %></div>
+  </div>
 <% end %>
 
 <%= link_to 'Edit', edit_page_path(@page) %> |

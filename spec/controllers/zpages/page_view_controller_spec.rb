@@ -11,7 +11,8 @@ module Zpages
     it "renders the correct template and assigns the correct page to it" do
       get 'show', slug: page.slug
       response.should be_success
-      assigns(:page).should eq(page)
+      assigns(:presenter).should be_a(Zpages::Presenters::PagePresenter)
+      assigns(:presenter).page.should eq(page)
       response.should render_template('custom-template')
     end
 

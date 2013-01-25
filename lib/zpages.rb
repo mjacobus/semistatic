@@ -41,4 +41,8 @@ module Zpages
       autoload :PageViewController,  'zpages/concerns/controllers/page_view_controller'
     end
   end
+
+  module Presenters
+    autoload :PagePresenter,     'zpages/presenters/page_presenter'
+  end
 end

@@ -2,8 +2,8 @@
 
 
 
-<h1><%= semistatic_content(:title) %></h1>
+<h1><%= @presenter.output(:title) %></h1>
 
 <div class="body">
-  <%= semistatic_content(:body) %>
+  <%= @presenter.output(:body) %>
 </div>

@@ -20,9 +20,11 @@ module Zpages
     end
 
     describe "GET show" do
-      it "assigns the requested page as @page" do
+      it "assigns the requested page as @page and its @presenter" do
         get :show, {:id => page.to_param}, valid_session
         assigns(:page).should eq(page)
+        assigns(:presenter).should be_a(Zpages::Presenters::PagePresenter)
+        assigns(:presenter).page.should eq(page)
       end
     end
 
@@ -36,9 +38,11 @@ module Zpages
     end
 
     describe "GET edit" do
-      it "assigns the requested page as @page" do
+      it "assigns the requested page as @page and its presenter" do
         get :edit, {:id => page.to_param}, valid_session
         assigns(:page).should eq(page)
+        assigns(:presenter).should be_a(Zpages::Presenters::PagePresenter)
+        assigns(:presenter).page.should eq(page)
       end
     end
 
@@ -72,6 +76,8 @@ module Zpages
           Page.any_instance.stub(:save).and_return(false)
           put :update, {:id => page.to_param, :page => { "title" => "invalid value" }}, valid_session
           assigns(:page).should eq(page)
+          assigns(:presenter).should be_a(Zpages::Presenters::PagePresenter)
+          assigns(:presenter).page.should eq(page)
         end
 
         it "re-renders the 'edit' template" do

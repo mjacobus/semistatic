@@ -20,6 +20,7 @@ module Zpages
         # GET /pages/1.json
         def show
           @page = find_or_create_page
+          @presenter = Presenters::PagePresenter.new(@page, self.class.helpers)
           respond_with(@page)
         end
 
@@ -32,6 +33,8 @@ module Zpages
         # GET /pages/1/edit
         def edit
           @page = find_or_create_page
+          @presenter = Presenters::PagePresenter.new(@page, self.class.helpers)
+          respond_with(@page)
         end
 
         # POST /pages
@@ -44,7 +47,11 @@ module Zpages
         # PUT /pages/1.json
         def update
           @page = find_or_create_page
-          @page.update_attributes(params[:page])
+
+          unless @page.update_attributes(params[:page])
+            @presenter = Presenters::PagePresenter.new(@page, self.class.helpers)
+          end
+
           respond_with(@page)
         end
 

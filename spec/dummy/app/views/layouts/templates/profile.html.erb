@@ -1,7 +1,7 @@
-<h1><%= semistatic_content(:page_title) %></h1>
+<h1><%= @presenter.output(:page_title) %></h1>
 
 <figure>
-  <%= semistatic_content(:avatar) %>
+  <%= @presenter.output(:avatar) %>
 </figure>
 
-<p><%= semistatic_content(:about) %></p>
+<p><%= @presenter.output(:about) %></p>

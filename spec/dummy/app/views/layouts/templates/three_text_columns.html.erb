@@ -1,7 +1,7 @@
 <%= link_to('Title And Body', main_app.page_path('title-and-body')) %>
 
 
-<h1><%= semistatic_content(:page_title) %></h1>
+<h1><%= @presenter.output(:page_title) %></h1>
 
 <style>
   td {border: 1px solid black;}
@@ -9,8 +9,8 @@
 
 <table>
   <tr>
-    <td><%= semistatic_content(:column_one) %></td>
-    <td><%= semistatic_content(:column_two) %></td>
-    <td><%= semistatic_content(:column_three) %></td>
+    <td><%= @presenter.output(:column_one) %></td>
+    <td><%= @presenter.output(:column_two) %></td>
+    <td><%= @presenter.output(:column_three) %></td>
   </tr>
 </table>

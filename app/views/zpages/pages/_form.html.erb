@@ -29,7 +29,7 @@
     <%= f.fields_for :parts do |subform| %>
       <div class="field">
         <%= subform.label(subform.object.name) %><br />
-        <%= page_attribute_form_element(subform) %>
+        <%= @presenter.input(subform) %>
       </div>
     <% end %>
   </fieldset>
