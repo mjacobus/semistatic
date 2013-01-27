@@ -34,7 +34,7 @@ module Semistatic
       # render the part as html
       # @param Symbol name # the part name
       # @return String
-      def render_html(part)
+      def output_html(part)
         part.value
       end
 
