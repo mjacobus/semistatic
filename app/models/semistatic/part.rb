@@ -36,7 +36,7 @@ module Semistatic
     # force options to be a HashWithIndifferentAccess
     # @param (nil | Hash | HashWithIndifferentAccess)
     def options=(options)
-      unless options.nil? || options.class == HashWithIndifferentAccess
+      unless options.nil? || options.kind_of?(HashWithIndifferentAccess)
         options = HashWithIndifferentAccess.new(options)
       end
       write_attribute(:options, options)
