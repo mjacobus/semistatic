@@ -35,7 +35,7 @@ module Semistatic
       # @param Symbol name # the part name
       # @return String
       def output_html(part)
-        part.value
+        helpers.raw part.value
       end
 
       # render the part as html
