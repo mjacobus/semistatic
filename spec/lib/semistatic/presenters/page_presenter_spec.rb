@@ -46,7 +46,10 @@ describe Semistatic::Presenters::PagePresenter do
     end
 
     context "with image part" do
-      before { image_part.stub(:file).and_return(file) }
+      before do
+        image_part.stub(:file).and_return(file)
+        image_part.stub(:file?).and_return(true)
+      end
 
       context "with file" do
         let(:file) { stub('file', file?: true, url: 'image.png') }
