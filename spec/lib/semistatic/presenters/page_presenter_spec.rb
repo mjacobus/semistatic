@@ -52,16 +52,18 @@ describe Semistatic::Presenters::PagePresenter do
       end
 
       context "with file" do
-        let(:file) { stub('file', file?: true, url: 'image.png') }
+        let(:file) { stub('file', url: 'image.png') }
 
         it "renders the image tag" do
-          subject.output(:image_part).to_s.should match(Regexp.new('src="image.png"'))
+          subject.output(:image_part).to_s.should match(Regexp.new('image.png"'))
           subject.output(:image_part).to_s.should match(Regexp.new('<img'))
         end
       end
 
       context "without file" do
-        let(:file) { stub('file', file?: false, url: 'image.png') }
+        before { image_part.stub(:file?).and_return(false) }
+
+        let(:file) { stub('file', url: 'image.png') }
 
         it "does not render the image tag" do
           subject.output(:image_part).to_s.should_not match(Regexp.new('image.png'))
