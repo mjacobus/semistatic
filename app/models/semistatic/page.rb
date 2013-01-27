@@ -17,15 +17,16 @@ module Semistatic
 
     # Factory a page from the config
     #     Creates the attributes required by the config
-    # @param Semistatic::Config::Page config # the page configuration
+    # @param String template_name
+    # @param Hash options # the page configuration
     # @return Page
-    def self.factory(config)
-      page = new
-      page.template_name = config.name
+    def self.factory(template_name, options)
+      page = new(template_name: template_name)
 
-      config.attributes.each do |name, attr|
-        part = page.parts.build({ name: attr.name })
-        part.options = attr.options
+      options = HashWithIndifferentAccess.new(options)
+      options[:parts].each do |name, attributes|
+        part = page.parts.build({ name: name })
+        part.options = attributes
       end
 
       page.save(validate: false)

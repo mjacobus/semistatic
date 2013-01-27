@@ -15,15 +15,14 @@ end
 
 describe Semistatic::Page, '.factory' do
   let(:page_config) do
-    Semistatic::Config::Page.new(:page_name, {
-      attributes: {
+    { parts: {
         title: { type: :string},
         body:  { type: :html},
       }
-    })
+    }
   end
 
-  subject { described_class.factory(page_config) }
+  subject { described_class.factory('page_name', page_config) }
   its(:template_name) { should eq('page_name') }
   its('parts.count') { should eq(2) }
 
@@ -45,12 +44,12 @@ end #.factory
 
 describe Semistatic::Page, "#part" do
   it "gets part by name" do
-    page = Semistatic::Page.factory(Semistatic::Config::Page.new(:page_name, {
-      attributes: {
+    page = Semistatic::Page.factory(:page_name, {
+      parts: {
         title: { type: :string},
         body:  { type: :html},
       }
-    }))
+    })
 
     page.part('title').should be_a Semistatic::Part
     page.part('title').name.should == 'title'

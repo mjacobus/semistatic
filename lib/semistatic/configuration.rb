@@ -38,9 +38,7 @@ module Semistatic
     def load
       config_files.each do |file|
         config = YAML::load(File.open(file))
-        config['pages'].each do |name, config|
-          @config[:pages][name] = self.class.factory_page(name, config)
-        end
+        @config.merge! config
       end
     end
 
@@ -57,14 +55,5 @@ module Semistatic
       page
     end
 
-    # @param String name # => the page name
-    # @param Hash config # => the configuration
-    #                    { attributes: {
-    #                      title: { type: :string },
-    #                      body: { type: :html }
-    #                     }}
-    def self.factory_page(name, config)
-      Semistatic::Config::Page.new(name, config)
-    end
   end
 end

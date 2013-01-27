@@ -24,17 +24,6 @@ module Semistatic
 
   autoload :Configuration,      'semistatic/configuration'
 
-  module Config
-    autoload :Page,             'semistatic/config/page'
-
-    module Attribute
-      autoload :Base,      'semistatic/config/attribute/base'
-      autoload :Html,      'semistatic/config/attribute/html'
-      autoload :Image,     'semistatic/config/attribute/image'
-      autoload :String,    'semistatic/config/attribute/string'
-    end
-  end
-
   module Concerns
     module Controllers
       autoload :PagesController,     'semistatic/concerns/controllers/pages_controller'

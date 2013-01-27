@@ -1,6 +1,6 @@
 pages:
   body_and_title:
-    attributes:
+    parts:
       title:
         type: string
         label: Title of Page
@@ -9,7 +9,7 @@ pages:
         type: string
         label: Body
   text_and_content:
-    attributes:
+    parts:
       text:
         type: string
       content:
@@ -17,7 +17,7 @@ pages:
         label: The content
         description: This is the content
   test_template:
-    attributes:
+    parts:
       text:
         type: string
       content:

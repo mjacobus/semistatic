@@ -35,8 +35,7 @@ module Semistatic
 
       it "should load config from yaml file" do
         subject.pages.each do |name, page|
-          page.should  be_a Semistatic::Config::Page
-          page.name.should == name
+          page.should  be_a(Hash)
         end
       end
     end
@@ -48,23 +47,18 @@ module Semistatic
       end
 
       it "should get page with Symbol key" do
-        subject.page(:body_and_title).should  be_a Semistatic::Config::Page
+        subject.page(:body_and_title).should  be_a(Hash)
+        subject.page(:body_and_title).should   be_a(Hash)
       end
 
       it "should get page with String key" do
-        subject.page('body_and_title').should be_a Semistatic::Config::Page
+        subject.page('body_and_title').should be_a(Hash)
       end
 
       it "should raise error when page does not exist" do
         expect { subject.page(:no_exists) }.to raise_error(Semistatic::Configuration::Error)
       end
 
-      context "page attributes" do
-        it "should factory attributes" do
-          page = subject.page(:body_and_title)
-          page.attributes.first[1].should be_a Semistatic::Config::Attribute::String
-        end
-      end
     end
 
     describe "#pages" do
@@ -74,19 +68,10 @@ module Semistatic
       end
 
       it "should factory pages from file" do
+        subject.pages[:body_and_title].should be_a(Hash)
         subject.pages.each do |name, page|
-           page.should be_a Semistatic::Config::Page
-           page.name.should == name
+           page.should be_a(Hash)
         end
-      end
-    end
-
-    describe ".factory_page" do
-      subject { described_class }
-      it "should factory page" do
-        page = subject.factory_page(:page_name, { attributes: { body: {type: :string } } } )
-        page.should be_a Semistatic::Config::Page
-        page.name.to_s.should == 'page_name'
       end
     end
 

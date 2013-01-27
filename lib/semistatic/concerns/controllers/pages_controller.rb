@@ -73,7 +73,7 @@ module Semistatic
             if params[:id]
               Page.find(params[:id])
             else
-              Page.factory(@config.page(params[:template_name]))
+              Page.factory(params[:template_name], @config.page(params[:template_name]))
             end
           end
 

@@ -1,12 +1,12 @@
 pages:
   title_and_body:
-    attributes:
+    parts:
       title:
         type: String
       body:
         type: Html
   three_text_columns:
-    attributes:
+    parts:
       column_one:
         type: Html
       column_two:
@@ -14,7 +14,7 @@ pages:
       column_three:
         type: Html
   test_template:
-    attributes:
+    parts:
       text:
         type: string
       content:
@@ -23,7 +23,7 @@ pages:
         description: This is the content
 
   profile:
-    attributes:
+    parts:
       avatar:
         type: image
         styles:
