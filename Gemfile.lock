@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    zpages (0.0.1)
+    semistatic (0.0.1)
       jquery-rails
       paperclip (~> 3.0)
       rails
@@ -162,7 +162,7 @@ DEPENDENCIES
   jquery-rails
   rb-inotify
   rspec-rails
+  semistatic!
   shoulda-matchers (~> 1.0)
   simplecov
   sqlite3
-  zpages!

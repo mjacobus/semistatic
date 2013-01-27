@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20130123191557) do
 
-  create_table "zpages_pages", :force => true do |t|
+  create_table "semistatic_pages", :force => true do |t|
     t.string   "title"
     t.string   "slug"
     t.datetime "created_at",    :null => false
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20130123191557) do
     t.string   "template_name"
   end
 
-  create_table "zpages_parts", :force => true do |t|
+  create_table "semistatic_parts", :force => true do |t|
     t.string   "name"
     t.integer  "page_id"
     t.text     "value"
@@ -34,6 +34,6 @@ ActiveRecord::Schema.define(:version => 20130123191557) do
     t.text     "options"
   end
 
-  add_index "zpages_parts", ["page_id"], :name => "index_zpages_parts_on_page_id"
+  add_index "semistatic_parts", ["page_id"], :name => "index_semistatic_parts_on_page_id"
 
 end

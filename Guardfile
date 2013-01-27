@@ -9,8 +9,8 @@ guard 'rspec',
   :all_after_pass => false do
 
   # concern models, controllers
-  watch(%r{^lib/zpages/concerns/models/(.+)\.rb$})      { |m| "spec/models/zpages/#{m[1]}_spec.rb" }
-  watch(%r{^lib/zpages/concerns/controllers/(.+)\.rb$}) { |m| "spec/controllers/zpages/#{m[1]}_spec.rb" }
+  watch(%r{^lib/semistatic/concerns/models/(.+)\.rb$})      { |m| "spec/models/semistatic/#{m[1]}_spec.rb" }
+  watch(%r{^lib/semistatic/concerns/controllers/(.+)\.rb$}) { |m| "spec/controllers/semistatic/#{m[1]}_spec.rb" }
 
 
   watch(%r{^spec/.+_spec\.rb$})
