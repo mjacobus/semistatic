@@ -3,7 +3,7 @@ module Semistatic
     belongs_to :page
     attr_accessible :name, :value, :file
 
-    serialize :options, HashWithIndifferentAccess
+    serialize :options, Hash
 
     has_attached_file :file,
       styles: lambda { |attachment| attachment.instance.options[:styles] }
@@ -36,8 +36,8 @@ module Semistatic
     # force options to be a HashWithIndifferentAccess
     # @param (nil | Hash | HashWithIndifferentAccess)
     def options=(options)
-      unless options.nil? || options.kind_of?(HashWithIndifferentAccess)
-        options = HashWithIndifferentAccess.new(options)
+      if options.respond_to? :deep_symbolize_keys
+        options = options.deep_symbolize_keys
       end
       write_attribute(:options, options)
     end

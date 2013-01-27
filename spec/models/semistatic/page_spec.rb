@@ -37,7 +37,7 @@ describe Semistatic::Page, '.factory' do
 
   it "has parts with the attribute options saved on it" do
     subject.parts.find_by_name(:title).options.should eq(
-      HashWithIndifferentAccess.new({ type: :string})
+      { type: :string}
     )
   end
 end #.factory

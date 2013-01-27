@@ -12,15 +12,22 @@ end
 
 
 describe Semistatic::Part, "#options" do
-  let(:hash) { {:option_1 => 'value 1', 'option_2' => 'value 2'} }
+  let(:hash) do
+    {
+      :option_1 => 'value 1',
+      'option_2' => 'value 2',
+      'one' => {'two' => 'two_value'}
+    }
+  end
   let(:part_id) { FactoryGirl.create(:part, options: hash).id }
 
   it "is a serialized param" do
     # force reload
     part = Semistatic::Part.where('id > 0').where(id: part_id).first
-    part.options.should be_a HashWithIndifferentAccess
-    part.options.should have_key('option_1')
+    part.options.should be_a Hash
+    part.options.should have_key(:option_1)
     part.options.should have_key(:option_2)
+    part.options[:one].should have_key(:two)
     part.options[:option_1].should eq('value 1')
     part.options[:option_2].should eq('value 2')
   end

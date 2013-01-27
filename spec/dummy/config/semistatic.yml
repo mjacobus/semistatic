@@ -30,4 +30,4 @@ pages:
           original: 200x200>
           thumb: 50x50>
       about:
-        type: string
+        type: html
