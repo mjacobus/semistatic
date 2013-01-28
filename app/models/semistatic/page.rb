@@ -1,6 +1,10 @@
 module Semistatic
   class Page < ActiveRecord::Base
-    attr_accessible :slug, :title, :template_name, :parts_attributes
+    attr_accessible :layout,
+                    :parts_attributes,
+                    :slug,
+                    :template_name,
+                    :title
 
     has_many :parts
     accepts_nested_attributes_for :parts

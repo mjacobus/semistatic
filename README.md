@@ -3,6 +3,22 @@ Semistatic
 
 This project rocks and uses MIT-LICENSE.
 
+Instalation
+-----------------------------
+
+Add the gem to the gem file:
+
+```ruby
+  # Gemfile
+  gem 'semistatic'
+```
+
+```bash
+  bundle install
+  rake semistatic:install:migrations
+  rake db:migrate
+```
+
 On the application route file
 -----------------------------
 
@@ -42,10 +58,10 @@ The config file
 The templates
 -----------------------------
 
-Create the templates inside app/views/templates. Use the the @presenter instance val to
+Create the templates inside app/views/semistatic. Use the the @presenter instance val to
 ouput the field content with <%= @presenter.output(:field_name) %>
 
-about page: app/views/layouts/templates/about.html.erb
+about page: app/views/semistatic/about.html.erb
 
 ```ruby
   <h1><%= @presenter.output(:page_title) %></h1>

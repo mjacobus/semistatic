@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Semistatic::Page do
+  it { should allow_mass_assignment_of(:layout) }
   it { should_not allow_mass_assignment_of(:options) }
   it { should allow_mass_assignment_of(:slug) }
   it { should allow_mass_assignment_of(:template_name) }

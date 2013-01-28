@@ -15,14 +15,17 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
+
   <div class="field">
     <%= f.label :slug %><br />
     <%= f.text_field :slug %>
   </div>
 
   <div class="field">
-    <% # = pages_fields(f, @config.page(@page.template_name), @page) %>
+    <%= f.label :layout %><br />
+    <%= f.text_field :layout %>
   </div>
+
 
   <fieldset>
     <legend>Page Parts</legend>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130123191557) do
+ActiveRecord::Schema.define(:version => 20130128113735) do
 
   create_table "semistatic_pages", :force => true do |t|
     t.string   "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20130123191557) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.string   "template_name"
+    t.string   "layout"
   end
 
   create_table "semistatic_parts", :force => true do |t|

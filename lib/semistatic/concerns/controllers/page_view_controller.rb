@@ -21,7 +21,7 @@ module Semistatic
 
           @presenter = Presenters::PagePresenter.new(page, self.class.helpers)
 
-          render file: "layouts/templates/#{page.template_name}"
+          render file: "semistatic/#{page.template_name}", layout: page.layout
         end
 
       end # PageViewController
