@@ -1,8 +1,10 @@
-= Semistatic
+Semistatic
+=============
 
 This project rocks and uses MIT-LICENSE.
 
-== On the application route file
+On the application route file
+-----------------------------
 
 ```ruby
   Rails.application.routes.draw do
@@ -11,7 +13,8 @@ This project rocks and uses MIT-LICENSE.
   end
 ```
 
-== The config file
+The config file
+-----------------------------
 
 ```yml
   #config/semistatic.yaml
@@ -36,7 +39,8 @@ This project rocks and uses MIT-LICENSE.
           type: string
 ```
 
-== The templates
+The templates
+-----------------------------
 
 Create the templates inside app/views/templates. Use the the @presenter instance val to
 ouput the field content with <%= @presenter.output(:field_name) %>
@@ -49,7 +53,7 @@ about page: app/views/layouts/templates/about.html.erb
   <div class="body">
     <%= @presenter.output(:body) %>
   </div>
-
+```
 
 profile page: app/views/layouts/templates/profile.html.erb
 
@@ -65,7 +69,9 @@ profile page: app/views/layouts/templates/profile.html.erb
   <div class="about"><%= @presenter.output(:about) %></div>
 ```
 
-== Overriding the controller
+Overriding the controller
+-----------------------------
+
 Semistatic uses the ActiveSupport::Concearn pattern to extend its functionalities.
 
 To override, say, the crud controller, should create a file
