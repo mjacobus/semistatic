@@ -38,6 +38,13 @@ module Semistatic
         helpers.raw part.value
       end
 
+      # render the part as simple formated text
+      # @param Symbol name # the part name
+      # @return String
+      def output_text(part)
+        helpers.simple_format(part.value)
+      end
+
       # render the part as html
       # @param Symbol name # the part name
       # @param Symbol size # defaults to :original
@@ -56,6 +63,8 @@ module Semistatic
           when :string
             form.text_field :value
           when :html
+            form.text_area :value, class: 'html wysiwyg'
+          when :text
             form.text_area :value
           when :image
             input = form.file_field :file

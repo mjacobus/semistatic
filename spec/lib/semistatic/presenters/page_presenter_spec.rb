@@ -2,15 +2,17 @@ require 'spec_helper'
 
 describe Semistatic::Presenters::PagePresenter do
   let(:helpers) { ApplicationController.helpers }
-  let(:string_part)  { FactoryGirl.build_stubbed(:part, options: { type: :string }, name: :string) }
   let(:html_part)    { FactoryGirl.build_stubbed(:part, options: { type: :html   }, name: :html) }
   let(:image_part)   { FactoryGirl.build_stubbed(:part, options: { type: :image  }, name: :image) }
+  let(:string_part)  { FactoryGirl.build_stubbed(:part, options: { type: :string }, name: :string) }
+  let(:text_part)    { FactoryGirl.build_stubbed(:part, options: { type: :text   }, name: :text) }
 
   let(:page) do
     page = FactoryGirl.build_stubbed(:page, title: 'page title', parts: [string_part, html_part, image_part])
-    page.stub(:part).with(:string_part).and_return(string_part)
     page.stub(:part).with(:html_part).and_return(html_part)
     page.stub(:part).with(:image_part).and_return(image_part)
+    page.stub(:part).with(:string_part).and_return(string_part)
+    page.stub(:part).with(:text_part).and_return(text_part)
     page
   end
 
@@ -42,6 +44,16 @@ describe Semistatic::Presenters::PagePresenter do
 
       it "renders a html" do
         subject.output(:html_part).should eq('<p>unescaped string</p>')
+      end
+    end
+
+    context "with text part" do
+      let(:helpers) { stub(:helpers) }
+
+      it "renders as simple format" do
+        text_part.value = 'long text'
+        helpers.should_receive(:simple_format).with('long text')
+        subject.output(:text_part)
       end
     end
 
