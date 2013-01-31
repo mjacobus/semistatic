@@ -6,7 +6,7 @@ module Semistatic
     serialize :options, Hash
 
     has_attached_file :file,
-      styles: lambda { |attachment| attachment.instance.options[:styles] }
+      styles: lambda { |attachment| attachment.instance.options[:styles] || {} }
 
     # attachment validation
     validates_attachment_presence :file, if: :is_file?

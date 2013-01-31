@@ -104,6 +104,19 @@ describe Semistatic::Part, "#file" do
         end
       end
 
+      context "with no styles defined" do
+        before do
+          image.options.delete(:styles)
+          image.file = File.open(TEST_IMAGE) # 300x400 image
+          image.save!
+        end
+
+        it "saves the image with no modification" do
+          path = "#{Rails.root}/public/system/semistatic/parts/files/000/000/00#{image.id}/original/300x400.jpg"
+          File.exists?(path).should be_true
+        end
+      end
+
       # Cannot do at the moment
       # paperclip wont accept lambda as path and url params
       #
