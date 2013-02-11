@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Semistatic::VERSION
   s.authors     = ["Marcelo Jacobus"]
   s.email       = ["marcelo@zira.com.br"]
-  s.homepage    = "TODO"
+  s.homepage    = "http://www.zira.com.br"
   s.summary     = "Simple embeded page creator"
   s.description = "Simple embeded page creator. Should I be called CMS? Not sure."
 
