@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "Simple embeded page creator"
   s.description = "Simple embeded page creator. Should I be called CMS? Not sure."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "rails"
   s.add_dependency "jquery-rails"
