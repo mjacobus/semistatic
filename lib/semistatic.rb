@@ -1,5 +1,6 @@
 require "semistatic/engine"
 require 'paperclip'
+require 'tinymce-rails'
 
 module Semistatic
 

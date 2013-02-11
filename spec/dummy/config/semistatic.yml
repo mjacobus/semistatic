@@ -2,26 +2,19 @@ pages:
   title_and_body:
     parts:
       title:
-        type: String
+        type: string
       body:
-        type: Html
+        type: html
   three_text_columns:
     parts:
       column_one:
-        type: Html
+        type: text
       column_two:
-        type: Html
-      column_three:
-        type: Html
-  test_template:
-    parts:
-      text:
         type: string
-      content:
+      column_three:
         type: html
+        description: This is html
         label: The content
-        description: This is the content
-
   profile:
     parts:
       avatar:

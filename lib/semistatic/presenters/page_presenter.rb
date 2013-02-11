@@ -63,7 +63,7 @@ module Semistatic
           when :string
             form.text_field :value
           when :html
-            form.text_area :value, class: 'html wysiwyg'
+            form.text_area :value, class: 'html wysiwyg tinymce'
           when :text
             form.text_area :value
           when :image
