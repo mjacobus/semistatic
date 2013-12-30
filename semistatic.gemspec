@@ -8,12 +8,13 @@ Gem::Specification.new do |s|
   s.name        = "semistatic"
   s.version     = Semistatic::VERSION
   s.authors     = ["Marcelo Jacobus"]
-  s.email       = ["marcelo@zira.com.br"]
-  s.homepage    = "TODO"
+  s.email       = ["marcelo.jacobus@gmail.com"]
+  s.homepage    = "htpps://github.com/mjacobus/semistatic"
+  s.licence     = 'MIT'
   s.summary     = "Simple embeded page creator"
   s.description = "Simple embeded page creator. Should I be called CMS? Not sure."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "rails"
   s.add_dependency "jquery-rails"
@@ -27,5 +28,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "guard-rspec"
   s.add_development_dependency "rb-inotify"
   s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'coveralls'
 
 end
