@@ -5,6 +5,12 @@ pages:
         type: string
       body:
         type: html
+  test_template:
+    parts:
+      title:
+        type: string
+      body:
+        type: html
   three_text_columns:
     parts:
       column_one:
