@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Semistatic::VERSION
   s.authors     = ["Marcelo Jacobus"]
   s.email       = ["marcelo.jacobus@gmail.com"]
-  s.homepage    = "htpps://github.com/mjacobus/semistatic"
+  s.homepage    = "https://github.com/mjacobus/semistatic"
   s.license     = 'MIT'
   s.summary     = "Simple embeded page creator"
   s.description = "Simple embeded page creator. Should I be called CMS? Not sure."
