@@ -5,6 +5,7 @@ PATH
       jquery-rails
       paperclip (~> 3.0)
       rails
+      tinymce-rails
 
 GEM
   remote: http://rubygems.org/
@@ -40,7 +41,10 @@ GEM
     bourne (1.1.2)
       mocha (= 0.10.5)
     builder (3.0.4)
-    cocaine (0.4.2)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.3)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.0.8)
     coveralls (0.7.0)
       multi_json (~> 1.3)
@@ -84,11 +88,10 @@ GEM
     mocha (0.10.5)
       metaclass (~> 0.0.1)
     multi_json (1.5.0)
-    paperclip (3.4.0)
+    paperclip (3.5.2)
       activemodel (>= 3.0.0)
-      activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)
-      cocaine (~> 0.4.0)
+      cocaine (~> 0.5.3)
       mime-types
     polyglot (0.3.3)
     pry (0.9.10)
@@ -158,6 +161,8 @@ GEM
     thor (0.16.0)
     tilt (1.3.3)
     tins (0.13.1)
+    tinymce-rails (4.0.12)
+      railties (>= 3.1.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
