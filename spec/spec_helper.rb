@@ -2,11 +2,12 @@
 ENV["RAILS_ENV"] = "test"
 require 'simplecov'
 
-SimpleCov.start do
-  add_filter "spec"
-  add_group "Models",      "app/models"
-  add_group "Controllers", "app/controllers"
-  add_group "Helpers",      "app/helpers"
+require 'simplecov'
+SimpleCov.start 'rails'
+
+if ENV['TRAVIS']
+  require 'coveralls'
+  Coveralls.wear!('rails')
 end
 
 
